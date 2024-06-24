@@ -1,0 +1,16 @@
+Computational inefficiencies and anti-patterns
+1/ useMemo:
+- Using unnecessary dependencies such as prices when it does not directly affect useMemo's calculations
+-> Improvement: remove unnecessary dependencies
+2/ Some function is declare but never used such as formattedBalances
+-> Remove it and combining this in useMemo
+3/ Incorrect condition logic:
+- the condition lhsPriority > -99 is wrong 
+-> Improvement: we should change lhsPriority > -99 to balancePriority > -99 and combine the two conditions together
+4/ Missing properties for  WalletBalance:
+- Missing blockchain property for WalletBalance interface 
+- Using any type for blockchain is not safe
+-> Improvement: decalring blockchain property with string type for this situation 
+5/ Duplicate mapping on sortedBalances:
+- Duplicate mapping on sortedballances for handling formattedbalances and row can decrease performance
+-> Improvement: combining handle sorted and formatted balances in useMemo
